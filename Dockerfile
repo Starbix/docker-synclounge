@@ -1,13 +1,13 @@
 FROM node:latest
 
-COPY run.sh /home/run.sh
+COPY run.sh /opt/run.sh
 
-RUN chmod a+x /home/run.sh \
-  && mkdir /opt && cd /opt \
+RUN chmod a+x /opt/run.sh \
+  && cd /opt \
   && git clone https://github.com/samcm/plextogether \
   && cd plextogether \
   && npm install
 
 EXPOSE 8080
 
-CMD /home/run.sh
+CMD /opt/run.sh
