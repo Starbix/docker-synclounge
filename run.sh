@@ -1,2 +1,2 @@
 cd /opt/plextogether
-npm run dev
+npm run webapp

@@ -7,6 +7,7 @@ RUN chmod a+x /opt/run.sh \
   && git clone -b dev https://github.com/samcm/plextogether \
   && cd plextogether \
   && npm install
+  && npm run build
 
 EXPOSE 8080
 
