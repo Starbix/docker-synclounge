@@ -2,8 +2,8 @@ FROM node:latest
 
 COPY run.sh /opt/run.sh
 
-RUN chmod a+x /opt/run.sh \
-  && cd /opt \
+RUN cd /opt \
+  && chmod a+x run.sh \
   && git clone https://github.com/samcm/plextogether \
   && cd plextogether \
   && npm install \
