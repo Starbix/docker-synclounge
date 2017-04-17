@@ -1,5 +1,7 @@
 FROM node:latest
 
+ENV DOMAIN=example.com
+
 COPY run.sh /opt/run.sh
 
 RUN cd /opt \
