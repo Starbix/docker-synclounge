@@ -1,2 +1,2 @@
 cd /opt/plextogether
-npm run webapp
+npm run webapp & cd server && npm run server

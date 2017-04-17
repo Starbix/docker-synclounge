@@ -7,8 +7,10 @@ RUN chmod a+x /opt/run.sh \
   && git clone https://github.com/samcm/plextogether \
   && cd plextogether \
   && npm install \
-  && npm run build
+  && npm run build \
+  && cd server \
+  && npm install
 
-EXPOSE 8088
+EXPOSE 8088 8089
 
 CMD /opt/run.sh
