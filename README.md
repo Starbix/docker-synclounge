@@ -2,7 +2,9 @@
 Dockerfile for PlexTogether 🐳
 
 
-## To run both the Plex Together webapp and the Plex Together server through a web server like nginx you will need to make sure you proxy websockets. Example nginx.conf:
+### To run both the Plex Together webapp and the Plex Together server through a web server like nginx you will need to make sure you proxy websockets. Example nginx.conf:
+ 
+ ```
  server {
      listen 80;
  	server_name example.com;
@@ -26,3 +28,4 @@ Dockerfile for PlexTogether 🐳
  		proxy_pass http://localhost:8088/ptweb;
  	}
  }
+```
