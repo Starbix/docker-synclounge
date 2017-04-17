@@ -9,6 +9,6 @@ RUN chmod a+x /opt/run.sh \
   && npm install \
   && npm run build
 
-EXPOSE 8080
+EXPOSE 8088
 
 CMD /opt/run.sh
