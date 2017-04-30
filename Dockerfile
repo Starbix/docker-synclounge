@@ -13,10 +13,10 @@ RUN apk add --no-cache git make g++ python \
   && apk del git make g++ python \
   && rm -rf /tmp/* /root/*
 
-COPY run.sh /run.sh
+COPY run.sh /opt/run.sh
 
-RUN chmod a+x /run.sh
+RUN chmod a+x /opt/run.sh
 
 EXPOSE 8088 8089
 
-CMD ["run.sh"]
+CMD ["/opt/run.sh"]
