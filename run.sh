@@ -1,3 +1,3 @@
 #!/bin/sh
 cd /opt/plextogether
-yes
+npm run webapp & npm run server
