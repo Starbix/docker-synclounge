@@ -1,9 +1,8 @@
 # docker-plextogether
 Dockerfile for PlexTogether 🐳
 
-[![](https://images.microbadger.com/badges/image/starbix/plextogether.svg)](https://microbadger.com/images/starbix/plextogether "Get your own image badge on microbadger.com")
-
-[![](https://images.microbadger.com/badges/version/starbix/plextogether.svg)](https://microbadger.com/images/starbix/plextogether "Get your own version badge on microbadger.com")
+[![](https://images.microbadger.com/badges/image/starbix/plextogether.svg)](https://microbadger.com/images/starbix/plextogether)
+[![](https://images.microbadger.com/badges/version/starbix/plextogether.svg)](https://microbadger.com/images/starbix/plextogether)
 
 #### To run both the Plex Together webapp and the Plex Together server through a web server like nginx you will need to make sure you proxy websockets. Example nginx.conf:
 
