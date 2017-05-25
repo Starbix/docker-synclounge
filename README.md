@@ -8,6 +8,21 @@ Dockerfile for PlexTogether 🐳
 [![Docker Automated buil](https://img.shields.io/docker/automated/starbix/plextogether.svg)](https://hub.docker.com/r/starbix/plextogether/)
 [![Docker Build Status](https://img.shields.io/docker/build/starbix/plextogether.svg)](https://hub.docker.com/r/starbix/plextogether/)
 
+The following tags are available:
+
+- latest / alpine: webapp and server based on alpine
+- debian: webapp and server based on alpine
+- server: only server based on alpine
+- dev: development version of webapp and server based on alpine
+
+```
+docker create \
+  --name=plextogether \
+	-p 8088:8088 \
+	-p 8089:8089 \
+  starbix/plextogether
+```
+
 #### To run both the Plex Together webapp and the Plex Together server through a web server like nginx you will need to make sure you proxy websockets. Example nginx.conf:
 
  ```
