@@ -1,12 +1,7 @@
 # docker-plextogether
 Dockerfile for PlexTogether 🐳
 
-[![](https://images.microbadger.com/badges/image/starbix/plextogether.svg)](https://microbadger.com/images/starbix/plextogether)
-[![](https://images.microbadger.com/badges/version/starbix/plextogether.svg)](https://microbadger.com/images/starbix/plextogether)
-[![Docker Stars](https://img.shields.io/docker/stars/starbix/plextogether.svg)](https://hub.docker.com/r/starbix/plextogether/)
-[![Docker Pulls](https://img.shields.io/docker/pulls/starbix/plextogether.svg)](https://hub.docker.com/r/starbix/plextogether/)
-[![Docker Automated buil](https://img.shields.io/docker/automated/starbix/plextogether.svg)](https://hub.docker.com/r/starbix/plextogether/)
-[![Docker Build Status](https://img.shields.io/docker/build/starbix/plextogether.svg)](https://hub.docker.com/r/starbix/plextogether/)
+[![](https://images.microbadger.com/badges/image/starbix/plextogether.svg)](https://microbadger.com/images/starbix/plextogether) [![](https://images.microbadger.com/badges/version/starbix/plextogether.svg)](https://microbadger.com/images/starbix/plextogether) [![Docker Stars](https://img.shields.io/docker/stars/starbix/plextogether.svg)](https://hub.docker.com/r/starbix/plextogether/) [![Docker Pulls](https://img.shields.io/docker/pulls/starbix/plextogether.svg)](https://hub.docker.com/r/starbix/plextogether/) [![Docker Automated buil](https://img.shields.io/docker/automated/starbix/plextogether.svg)](https://hub.docker.com/r/starbix/plextogether/) [![Docker Build Status](https://img.shields.io/docker/build/starbix/plextogether.svg)](https://hub.docker.com/r/starbix/plextogether/)
 
 The following tags are available:
 
