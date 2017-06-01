@@ -9,6 +9,7 @@ The following tags are available:
 - debian: webapp and server based on alpine
 - server: only server based on alpine
 - dev: development version of webapp and server based on alpine
+- nginx: latest + nginx reverse proxy
 
 ```
 docker create \
