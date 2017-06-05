@@ -1,3 +1,3 @@
 #!/bin/sh
 cd /opt/plextogether
-npm run webapp & npm run server
+npm run server & node webapp.js --url=http://$DOMAIN/ptweb

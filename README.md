@@ -16,6 +16,7 @@ docker create \
   --name=plextogether \
 	-p 8088:8088 \
 	-p 8089:8089 \
+  -e DOMAIN=example.com \
   starbix/plextogether
 ```
 
