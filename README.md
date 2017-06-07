@@ -1,15 +1,23 @@
 # docker-plextogether
 Dockerfile for PlexTogether 🐳
 
-[![](https://images.microbadger.com/badges/image/starbix/plextogether.svg)](https://microbadger.com/images/starbix/plextogether) [![](https://images.microbadger.com/badges/version/starbix/plextogether.svg)](https://microbadger.com/images/starbix/plextogether) [![Docker Stars](https://img.shields.io/docker/stars/starbix/plextogether.svg)](https://hub.docker.com/r/starbix/plextogether/) [![Docker Pulls](https://img.shields.io/docker/pulls/starbix/plextogether.svg)](https://hub.docker.com/r/starbix/plextogether/) [![Docker Automated buil](https://img.shields.io/docker/automated/starbix/plextogether.svg)](https://hub.docker.com/r/starbix/plextogether/) [![Docker Build Status](https://img.shields.io/docker/build/starbix/plextogether.svg)](https://hub.docker.com/r/starbix/plextogether/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/starbix/plextogether.svg)](https://hub.docker.com/r/starbix/plextogether)
+
+[![](https://images.microbadger.com/badges/version/starbix/plextogether:latest.svg)](https://microbadger.com/images/starbix/plextogether:latest) [![](https://images.microbadger.com/badges/image/starbix/plextogether:latest.svg)](https://microbadger.com/images/starbix/plextogether:latest)
+
+
+[![](https://images.microbadger.com/badges/version/starbix/plextogether:dev.svg)](https://microbadger.com/images/starbix/plextogether:dev) [![](https://images.microbadger.com/badges/image/starbix/plextogether:dev.svg)](https://microbadger.com/images/starbix/plextogether:dev)
+
+[![](https://images.microbadger.com/badges/version/starbix/plextogether:nginx.svg)](https://microbadger.com/images/starbix/plextogether:nginx) [![](https://images.microbadger.com/badges/image/starbix/plextogether:nginx.svg)](https://microbadger.com/images/starbix/plextogether:nginx)
+
+
+[![](https://images.microbadger.com/badges/version/starbix/plextogether:server.svg)](https://microbadger.com/images/starbix/plextogether:server) [![](https://images.microbadger.com/badges/image/starbix/plextogether:server.svg)](https://microbadger.com/images/starbix/plextogether:server)
 
 The following tags are available:
 
 - latest / alpine: webapp and server based on alpine
-- debian: webapp and server based on alpine
 - server: only server based on alpine
-- dev: development version of webapp and server based on alpine
-- nginx: latest + nginx reverse proxy
+- dev: development version based on alpine
 
 ```
 docker create \
@@ -19,6 +27,17 @@ docker create \
   -e DOMAIN=example.com \
   starbix/plextogether
 ```
+
+- nginx: latest + nginx reverse proxy
+
+```
+docker create \
+  --name=plextogether_nginx \
+	-p 80:80 \
+  -e DOMAIN=example.com \
+  starbix/plextogether:nginx
+```
+
 
 #### To run both the Plex Together webapp and the Plex Together server through a web server like nginx you will need to make sure you proxy websockets. Example nginx.conf:
 
