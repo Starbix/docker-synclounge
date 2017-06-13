@@ -20,7 +20,7 @@ The following tags are available:
 - dev: development version based on alpine
 
 ```
-docker create \
+docker run \
   --name=plextogether \
 	-p 8088:8088 \
 	-p 8089:8089 \
@@ -31,7 +31,7 @@ docker create \
 - nginx: latest + nginx reverse proxy
 
 ```
-docker create \
+docker run \
   --name=plextogether_nginx \
 	-p 80:80 \
   -e DOMAIN=example.com \
