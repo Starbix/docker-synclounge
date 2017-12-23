@@ -1,7 +1,7 @@
 # docker-synclounge
 Dockerfile for SyncLounge 🐳
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/starbix/synclounge.svg)](https://hub.docker.com/r/starbix/synclounge)
+[![Docker Pulls](https://img.shields.io/docker/pulls/starbix/plextogether.svg)](https://hub.docker.com/r/starbix/plextogether)
 
 [![](https://images.microbadger.com/badges/version/starbix/synclounge:latest.svg)](https://microbadger.com/images/starbix/synclounge:latest) [![](https://images.microbadger.com/badges/image/starbix/synclounge:latest.svg)](https://microbadger.com/images/starbix/synclounge:latest)
 

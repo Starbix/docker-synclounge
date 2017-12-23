@@ -6,7 +6,7 @@ COPY run.sh /opt/run.sh
 
 RUN apk add --no-cache git make g++ python \
   && cd /opt \
-  && git clone -b dev https://github.com/samcm/synclounge \
+  && git clone -b v2 https://github.com/samcm/synclounge \
   && cd synclounge \
   && npm install \
   && npm run build \
