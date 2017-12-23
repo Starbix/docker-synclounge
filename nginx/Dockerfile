@@ -6,8 +6,8 @@ COPY run.sh /opt/run.sh
 
 RUN apk add --no-cache git make g++ python nginx \
   && cd /opt \
-  && git clone https://github.com/samcm/plextogether \
-  && cd plextogether \
+  && git clone https://github.com/samcm/synclounge \
+  && cd synclounge \
   && npm install \
   && npm run build \
   && apk del git make g++ python \

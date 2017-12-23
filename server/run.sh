@@ -1,3 +1,3 @@
 #!/bin/sh
-cd /opt/plextogether
+cd /opt/synclounge
 npm run server

@@ -1,3 +1,3 @@
 #!/bin/sh
-cd /opt/plextogether
-npm run server & node webapp.js --url=http://$DOMAIN/ptweb
+cd /opt/synclounge
+npm run server & node webapp.js --url=http://$DOMAIN/slweb
