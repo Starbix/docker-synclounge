@@ -1,5 +1,6 @@
 # docker-synclounge
-Dockerfile for SyncLounge 🐳
+
+> 🐳 Dockerfile for SyncLounge
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/starbix/plextogether.svg)](https://hub.docker.com/r/starbix/plextogether)
 
@@ -66,3 +67,15 @@ docker run \
  	}
  }
 ```
+
+## Maintainers
+
+[@Starbix](https://github.com/Starbix)
+
+## Contribute
+
+PRs accepted.
+
+## License
+
+MIT © 2017 Cédric Laubacher
