@@ -1,3 +1,3 @@
 #!/bin/sh
 cd /opt/synclounge
-npm run server & node webapp.js --accessUrl=http://$DOMAIN
+export accessUrl=http://$DOMAIN; npm run server & node webapp.js
