@@ -1,6 +1,12 @@
 FROM node:alpine
 
-ENV DOMAIN=localhost
+ENV accessUrl=localhost
+ENV webroot=
+ENV serverroot=
+ENV autoJoin=false
+ENV autoJoinServer=
+ENV autoJoinRoom=
+ENV autoJoinPassword=
 
 COPY run.sh /opt/run.sh
 
