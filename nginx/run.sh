@@ -1,27 +1,31 @@
 #!/bin/sh
-echo Hello
 
-nohttp=${$accessUrl/http:\/\//}
+echo Domain is $DOMAIN
+echo Webroot is $webroot
 
-nohttps=${$nohttp/https:\/\//}
-
-echo Domain is $nohttps
-
-sed -i -e "s/<DOMAIN>/$nohttps/g" /etc/nginx/nginx.conf
+cd /opt/synclounge
+needRebuild=false
+sed -i -e "s/<DOMAIN>/$DOMAIN/g" /etc/nginx/nginx.conf
 if [ $webroot != "" ]; then
-  sed -i -e "s/<webroot>/$webroot/g" /etc/nginx/nginx.conf
+  sed -i -e "s/<WEBROOT>/\\$webroot/g" /etc/nginx/nginx.conf
+  needRebuild=true
 else
-  sed -i -e "s/<webroot>/ /g" /etc/nginx/nginx.conf
+  sed -i -e "s/<WEBROOT>//g" /etc/nginx/nginx.conf
 fi
-if [ $serveroot != "" ]; then
-  sed -i -e "s/<serverroot>/$serverroot/g" /etc/nginx/nginx.conf
+if [ $serverroot != "" ]; then
+  sed -i -e "s/<SERVERROOT>/\\$serverroot/g" /etc/nginx/nginx.conf
 else
-  sed -i -e "s/<serverroot>/ /g" /etc/nginx/nginx.conf
+  sed -i -e "s/<SERVERROOT>//g" /etc/nginx/nginx.conf
 fi
 if [ $autoJoin == "true" ]; then
-  echo 'Rebuilding for autojoin support'
+  needRebuild=true
+fi
+if [ $needRebuild == "true" ]; then
+  echo 'Rebuilding Webapp for custom options support. This can take a minute or two.'
+  npm install
   npm run build
 else
-  echo 'Not rebuilding the app'
+  echo 'Not rebuilding webapp'
 fi
-export accessUrl=$accessUrl; npm run server & node webapp.js & nginx
+cat /etc/nginx/nginx.conf
+export accessUrl=http://$DOMAIN; npm run server & node webapp.js & nginx
