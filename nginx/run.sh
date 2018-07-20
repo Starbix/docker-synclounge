@@ -2,8 +2,10 @@
 
 echo Domain is $DOMAIN
 echo Webroot is $webroot
+echo Autojoin is $autoJoin
 
 cd /opt/synclounge
+
 needRebuild=false
 sed -i -e "s/<DOMAIN>/$DOMAIN/g" /etc/nginx/nginx.conf
 if [ $webroot != "" ]; then
