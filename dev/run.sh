@@ -6,4 +6,4 @@ if [ "autoJoin" == "true" ]; then
 else
   echo 'Not rebuilding the app'
 fi
-export accessUrl=http://$DOMAIN; npm run server & node webapp.js
+export accessUrl=$accessUrl; npm run server & node webapp.js

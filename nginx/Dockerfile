@@ -1,10 +1,16 @@
 FROM node:alpine
 
-ENV DOMAIN=example.com
+ENV accessUrl=localhost
+ENV webroot=
+ENV serverroot=
+ENV autoJoin=false
+ENV autoJoinServer=
+ENV autoJoinRoom=
+ENV autoJoinPassword=
 
 COPY run.sh /opt/run.sh
 
-RUN apk add --no-cache git make g++ python nginx \
+RUN apk add --no-cache git make g++ python nginx bash \
   && cd /opt \
   && git clone https://github.com/samcm/synclounge \
   && cd synclounge \
