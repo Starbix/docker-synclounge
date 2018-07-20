@@ -1,4 +1,9 @@
 #!/bin/sh
 sed -i -e "s/<DOMAIN>/$DOMAIN/g" /etc/nginx/nginx.conf
-cd /opt/synclounge
-npm run server & node webapp.js --url=http://$DOMAIN/slweb & nginx
+if [ "autoJoin" == "true" ]; then
+  echo 'Rebuilding for autojoin support'
+  npm run build
+else
+  echo 'Not rebuilding the app'
+fi
+export accessUrl=http://$DOMAIN; npm run server & node webapp.js & nginx
