@@ -1,6 +1,6 @@
 FROM node:alpine
 
-ENV accessUrl=localhost
+ENV DOMAIN=localhost
 ENV webroot=
 ENV serverroot=
 ENV autoJoin=false
@@ -16,7 +16,7 @@ RUN apk add --no-cache git make g++ python \
   && cd synclounge \
   && npm install \
   && npm run build \
-  && apk del git make g++ python \
+  && apk del make g++ python \
   && rm -rf /tmp/* /root/* \
   && chmod a+x /opt/run.sh
 

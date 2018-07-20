@@ -1,8 +1,8 @@
 FROM node:alpine
 
-ENV accessUrl=localhost
-ENV webroot=
-ENV serverroot=
+ENV DOMAIN=localhost
+ENV webroot=/slweb
+ENV serverroot=/slserver
 ENV autoJoin=false
 ENV autoJoinServer=
 ENV autoJoinRoom=
