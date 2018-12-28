@@ -1,4 +1,4 @@
-FROM node:10.15.0-alpine
+FROM node:lts-alpine
 
 ENV DOMAIN=localhost
 ENV webroot=
@@ -11,7 +11,7 @@ ENV autoJoinPassword=
 COPY run.sh /opt/run.sh
 
 RUN apk add --no-cache git make g++ python \
-  && cd /opt \
+  && mkdir -p /opt && cd /opt \
   && git clone https://github.com/samcm/synclounge \
   && cd synclounge \
   && npm install \
