@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM node:10.15.0-alpine
 
 ENV DOMAIN=localhost
 ENV webroot=/slweb
