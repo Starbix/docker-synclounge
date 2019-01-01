@@ -7,8 +7,6 @@
 [![](https://images.microbadger.com/badges/version/starbix/synclounge:latest.svg)](https://microbadger.com/images/starbix/synclounge:latest) [![](https://images.microbadger.com/badges/image/starbix/synclounge:latest.svg)](https://microbadger.com/images/starbix/synclounge:latest)
 
 
-[![](https://images.microbadger.com/badges/version/starbix/synclounge:dev.svg)](https://microbadger.com/images/starbix/synclounge:dev) [![](https://images.microbadger.com/badges/image/starbix/synclounge:dev.svg)](https://microbadger.com/images/starbix/synclounge:dev)
-
 [![](https://images.microbadger.com/badges/version/starbix/synclounge:nginx.svg)](https://microbadger.com/images/starbix/synclounge:nginx) [![](https://images.microbadger.com/badges/image/starbix/synclounge:nginx.svg)](https://microbadger.com/images/starbix/synclounge:nginx)
 
 
@@ -18,7 +16,6 @@ The following tags are available:
 
 - latest / alpine: webapp and server based on alpine
 - server: only server based on alpine
-- dev: development version based on alpine
 
 ```
 docker run \
