@@ -2,12 +2,9 @@ name: build
 
 on:
   push:
-    branches:
-      - master
-      - dev
     tags: 'v*'
     paths:
-      - 'Dockerfile'
+      - '**/Dockerfile'
       - 'rootfs/**'
       - '.github/workflows/build.yml'
 
