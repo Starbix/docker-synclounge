@@ -1,0 +1,77 @@
+name: build
+
+on:
+  push:
+    branches:
+      - master
+      - dev
+    tags: 'v*'
+    paths:
+      - 'Dockerfile'
+      - 'rootfs/**'
+      - '.github/workflows/build.yml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v1
+      -
+        name: Prepare
+        id: prepare
+        run: |
+          if [[ $GITHUB_REF == refs/tags/* ]]; then
+            echo ::set-output name=version::${GITHUB_REF#refs/tags/v}
+          else
+            echo ::set-output name=version::dev
+          fi
+          echo ::set-output name=build_date::$(date -u +'%Y-%m-%dT%H:%M:%SZ')
+          echo ::set-output name=docker_platforms::linux/amd64,linux/arm/v7,linux/arm/v6,linux/arm64
+          echo ::set-output name=docker_image::starbix/${GITHUB_REPOSITORY#Starbix/docker-}
+          echo $GITHUB_REF
+      -
+        name: Set up Docker Buildx
+        id: buildx
+        uses: crazy-max/ghaction-docker-buildx@v1
+        with:
+          version: latest
+      -
+        name: Docker Buildx (no push)
+        run: |
+          docker buildx build --platform ${{ steps.prepare.outputs.docker_platforms }} \
+            --output "type=image,push=false" \
+            --cache-from "${{ steps.prepare.outputs.docker_image }}:${{ steps.prepare.outputs.version }}" \
+            --build-arg "VERSION=${{ steps.prepare.outputs.version }}" \
+            --build-arg "BUILD_DATE=${{ steps.prepare.outputs.build_date }}" \
+            --build-arg "VCS_REF=${GITHUB_SHA::8}" \
+            --tag "${{ steps.prepare.outputs.docker_image }}:${{ steps.prepare.outputs.version }}" \
+            --file Dockerfile ./alpine
+      -
+        name: Login to Docker Hub
+        run: echo ${{ secrets.REGISTRY_TOKEN }} | docker login -u ${{ secrets.REGISTRY_USERNAME }} --password-stdin
+      -
+        name: Docker Buildx (dev)
+        if: success() && contains(steps.prepare.outputs.version, 'dev')
+        run: |
+          docker buildx build \
+            --platform ${{ steps.prepare.outputs.docker_platforms }} \
+            --tag "${{ steps.prepare.outputs.docker_image }}:${{ steps.prepare.outputs.version }}" \
+            --push \
+            --file ./Dockerfile ./alpine
+      -
+        name: Docker Buildx (latest)
+        if: success() && !contains(steps.prepare.outputs.version, 'dev')
+        run: |
+          docker buildx build \
+            --platform ${{ steps.prepare.outputs.docker_platforms }} \
+            --tag "${{ steps.prepare.outputs.docker_image }}:${{ steps.prepare.outputs.version }}" \
+            --tag "${{ steps.prepare.outputs.docker_image }}:latest" \
+            --push \
+            --file ./Dockerfile ./alpine
+      -
+        name: Docker Check Manifest
+        if: success()
+        run: |
+          docker run --rm mplatform/mquery ${{ steps.prepare.outputs.docker_image }}:${{ steps.prepare.outputs.version }}
