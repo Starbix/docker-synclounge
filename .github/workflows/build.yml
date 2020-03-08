@@ -5,7 +5,7 @@ on:
     branches:
       - master
       - dev
-      - buildx  
+      - buildx
     tags: 'v*'
     paths:
       - '**/Dockerfile'
@@ -48,7 +48,7 @@ jobs:
             --build-arg "BUILD_DATE=${{ steps.prepare.outputs.build_date }}" \
             --build-arg "VCS_REF=${GITHUB_SHA::8}" \
             --tag "${{ steps.prepare.outputs.docker_image }}:${{ steps.prepare.outputs.version }}" \
-            --file Dockerfile ./alpine
+            ./alpine
       -
         name: Login to Docker Hub
         run: echo ${{ secrets.REGISTRY_TOKEN }} | docker login -u ${{ secrets.REGISTRY_USERNAME }} --password-stdin
@@ -60,7 +60,7 @@ jobs:
             --platform ${{ steps.prepare.outputs.docker_platforms }} \
             --tag "${{ steps.prepare.outputs.docker_image }}:${{ steps.prepare.outputs.version }}" \
             --push \
-            --file ./Dockerfile ./alpine
+            ./alpine
       -
         name: Docker Buildx (latest)
         if: success() && !contains(steps.prepare.outputs.version, 'dev')
@@ -70,7 +70,7 @@ jobs:
             --tag "${{ steps.prepare.outputs.docker_image }}:${{ steps.prepare.outputs.version }}" \
             --tag "${{ steps.prepare.outputs.docker_image }}:latest" \
             --push \
-            --file ./Dockerfile ./alpine
+            ./alpine
       -
         name: Docker Check Manifest
         if: success()
