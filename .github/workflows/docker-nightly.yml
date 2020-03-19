@@ -1,0 +1,24 @@
+name: Docker Image CI
+
+on:
+  schedule:
+    - cron: '0 1 * * *'
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Docker Build & Push to Docker Hub
+      uses: opspresso/action-docker@master
+      with:
+        args: --docker
+      env:
+        USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        DOCKERFILE: "alpine/Dockerfile"
+        BUILD_PATH: "alpine/"
+        IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/synclounge
+        TAG_NAME: "nightly"
+        LATEST: "true"
