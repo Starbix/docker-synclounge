@@ -16,4 +16,5 @@ if [ $needRebuild == "true" ]; then
 else
   echo 'Not rebuilding webapp'
 fi
+
 export accessUrl=http://$DOMAIN; npm run server & node webapp.js
